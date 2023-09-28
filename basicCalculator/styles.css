@@ -52,3 +52,9 @@ button {
 button:hover {
     background-color: #04ddfe;
 }
+
+@media (min-width: 320px) {
+    .display {
+      width: 85%;
+    }
+  }
