@@ -1,5 +1,4 @@
 let currentInput = '';
-let currentResult=0;
 let acumulador=0;
 let i=0;
 let cadena=[];
@@ -39,7 +38,6 @@ function appendToDisplay(value)
 
 function clearDisplay() {
 	currentInput = '';
-	currentResult=0;
 	i=0;
 	document.getElementById('result').value = '0';
 	cadena=[];
