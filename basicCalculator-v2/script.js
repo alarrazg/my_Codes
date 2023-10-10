@@ -3,6 +3,8 @@ let acumulador=0;
 let i=0;
 let cadena=[];
 const operators=["+","-","*","/","%","="];
+buttonClick=document.querySelectorAll("button");
+console.log(buttonClick);
 
 function appendToDisplay(value) 
 {
