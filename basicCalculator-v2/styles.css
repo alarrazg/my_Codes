@@ -32,11 +32,120 @@ input[type="text"] {
 }
 
 .buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1px;
-    padding: 10px;
+    display:grid;
+    grid-template-areas:
+        "digit operator";
+    padding: 2px;
+    height: auto;
+    width:auto;
 }
+
+.buttons > .divDigits {
+    grid-area: digit;
+    padding: 2px;
+}
+
+.buttons > .divOperator {
+    grid-area: operator;
+    padding: 2px;
+}
+
+.divDigits {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas: 
+            "g h i"
+            "d e f"
+            "a b c"
+            "j j ."
+            "cl cl cl";
+        gap: 1px;
+        height: fit-content;
+}
+
+button[id="1"] {
+    grid-area: a;
+}
+
+button[id="2"] {
+    grid-area: b;
+}
+
+button[id="3"] {
+    grid-area: c;
+}
+
+button[id="4"] {
+    grid-area: d;
+}
+
+button[id="5"] {
+    grid-area: e;
+}
+
+button[id="6"] {
+    grid-area: f;
+}
+
+button[id="7"] {
+    grid-area: g;
+}
+
+button[id="8"] {
+    grid-area: h;
+}
+
+button[id="9"] {
+    grid-area: i;
+}
+
+button[id="0"] {
+    grid-area: j;
+}
+
+button[id="clear"] {
+    grid-area: cl;
+    background-color: rgb(241, 163, 135);
+}
+
+.divOperator {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-areas:
+        "mas result"
+        "menos result"
+        "multiplica result"
+        "divide result"
+        "porcentaje result";
+    gap: 1px;
+    height: fit-content;
+}
+
+button[id="+"] {
+    grid-area: mas;
+}
+
+button[id="-"] {
+    grid-area: menos;
+}
+
+button[id="*"] {
+    grid-area: multiplica;
+}
+
+button[id="/"] {
+    grid-area: divide;
+}
+
+button[id="%"] {
+    grid-area: porcentaje;
+}
+
+button[id="="] {
+    grid-area: result;
+}
+
+
 
 button {
     border: none;
@@ -48,8 +157,11 @@ button {
     transition: background-color 0.3s;
 }
 
-button[id="clear"] {
-    background-color: rgb(248, 185, 162);
+.digit {
+    background-color: rgb(243, 211, 152);
+}
+.operator {
+    background-color: rgb(194, 239, 194);
 }
 
 button:hover {
