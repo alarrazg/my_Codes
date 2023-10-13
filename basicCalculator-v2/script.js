@@ -3,6 +3,7 @@ let acumulador=0;
 let i=0;
 let cadena=[];
 const operators=["+","-","*","/","%","="];
+
 const digit=document.querySelectorAll(".digit");
 digit.forEach((dig) => {
 	dig.addEventListener("click", (e) => {
@@ -12,14 +13,16 @@ digit.forEach((dig) => {
 			clearDisplay();
 		}
 	})
-	//console.log(dig.name);
 });
 
 const operator=document.querySelectorAll(".operator");
 operator.forEach((op) => {
 	op.addEventListener("click", (e) => {
 		appendToDisplay(op.value);
-		//console.log(op.name);
+		if(op.value=="=")
+		{
+			calculateResult();
+		}
 	})
 });
 
