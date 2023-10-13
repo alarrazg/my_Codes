@@ -9,7 +9,7 @@ for (i = 0; i < crono.length; i++) {
 
 function cuenta() 
 {
-  console.log(crono[4]);
+  //console.log(crono[4]);
   crono[4] = crono[4] + 1;
 
   if (crono[4] > 59) {
@@ -56,13 +56,16 @@ function cuenta()
 
   document.getElementById('reloj').innerHTML = '';
   let divReloj = document.getElementById('reloj');
+  let divImg=document.createElement('div');
+  divImg.id='images';
   let img = document.createElement('img');
+
   let i = 0;
+  divReloj.appendChild(divImg);
   while (i < 8) {
     img = document.createElement('img');
     img.src = imagenes[i];
-    //divReloj.insertBefore(img,divReloj.lastChild);
-    document.getElementById('reloj').appendChild(img);
+    divImg.appendChild(img);
     i++;
   }
 }
