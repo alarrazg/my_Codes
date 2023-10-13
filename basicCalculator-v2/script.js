@@ -3,11 +3,29 @@ let acumulador=0;
 let i=0;
 let cadena=[];
 const operators=["+","-","*","/","%","="];
-buttonClick=document.querySelectorAll("button");
-console.log(buttonClick);
+const digit=document.querySelectorAll(".digit");
+digit.forEach((dig) => {
+	dig.addEventListener("click", (e) => {
+		appendToDisplay(dig.value);
+		if(dig.value=="")
+		{
+			clearDisplay();
+		}
+	})
+	//console.log(dig.name);
+});
+
+const operator=document.querySelectorAll(".operator");
+operator.forEach((op) => {
+	op.addEventListener("click", (e) => {
+		appendToDisplay(op.value);
+		//console.log(op.name);
+	})
+});
 
 function appendToDisplay(value) 
 {
+	console.log("value:",value);
 	if(operators.includes(value)==false)
 	{
 		currentInput+=value;
