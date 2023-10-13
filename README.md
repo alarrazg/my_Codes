@@ -1,2 +1,2 @@
 # my_Codes
-Repositorio de coóigos de algoritmos y programas.
+Repositorio de códigos de algoritmos y programas.
