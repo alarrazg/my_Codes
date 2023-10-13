@@ -28,7 +28,6 @@ operator.forEach((op) => {
 
 function appendToDisplay(value) 
 {
-	console.log("value:",value);
 	if(operators.includes(value)==false)
 	{
 		currentInput+=value;
@@ -56,7 +55,7 @@ function appendToDisplay(value)
 				i+=2;
 			}
 		}
-	console.log(cadena);
+	//console.log(cadena);
 }
 
 function clearDisplay() {
