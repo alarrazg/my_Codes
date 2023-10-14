@@ -9,7 +9,6 @@ for (i = 0; i < crono.length; i++) {
 
 function cuenta() 
 {
-  //console.log(crono[4]);
   crono[4] = crono[4] + 1;
 
   if (crono[4] > 59) {
@@ -54,20 +53,7 @@ function cuenta()
     imagenes[7] = 'images/' + (crono[4] % 10) + '.gif';
   }
 
-  document.getElementById('reloj').innerHTML = '';
-  let divReloj = document.getElementById('reloj');
-  let divImg=document.createElement('div');
-  divImg.id='images';
-  let img = document.createElement('img');
-
-  let i = 0;
-  divReloj.appendChild(divImg);
-  while (i < 8) {
-    img = document.createElement('img');
-    img.src = imagenes[i];
-    divImg.appendChild(img);
-    i++;
-  }
+	viewCrono(1);
 }
 
 function arranca() {
@@ -84,25 +70,40 @@ function reiniciar() {
     crono[i] = 0;
   }
 
-  document.getElementById('reloj').innerHTML = '';
-  let divReloj = document.getElementById('reloj');
-  let img = document.createElement('img');
-  i = 0;
+	viewCrono(0);
+}
 
-  while (i < 8) {
-    img = document.createElement('img');
-    img.src = imagenes[0];
-    if (i == 2 || i == 5) {
-      img.src = imagenes[2];
-    }
-    divReloj.insertBefore(img, divReloj.lastChild);
-    document.getElementById('reloj').appendChild(img);
-    i++;
-  }
+function viewCrono(value) {
+	let divReloj = document.getElementById('reloj');
+	divReloj.innerHTML = '';
+	let divImg = document.createElement('div');
+	divImg.id = 'images';
+	let img = document.createElement('img');
+	divReloj.appendChild(divImg);
+	i = 0;
+
+	if (value==0){ 
+		while (i < 8) {
+			img = document.createElement('img');
+			img.src = imagenes[0];
+			if (i == 2 || i == 5) {
+				img.src = imagenes[2];
+			}
+			divImg.appendChild(img);
+			i++;
+		}
+	}
+	else {
+			while (i < 8) {
+				img = document.createElement('img');
+				img.src = imagenes[i];
+				divImg.appendChild(img);
+				i++;
+			}
+	}
 }
 
 window.onload = function () {
   manejadorContador = setInterval(cuenta, 1000);
-  cuenta();
 }
 
