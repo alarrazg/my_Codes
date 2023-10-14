@@ -22,35 +22,35 @@ function cuenta()
   }
 
   if (crono[0] < 10) {
-    imagenes[0] = 'images/0.gif';
-    imagenes[1] = 'images/' + crono[0] + '.gif';
-    imagenes[2] = 'images/separador.gif';
+    imagenes[0] = 'images/0.png';
+    imagenes[1] = 'images/' + crono[0] + '.png';
+    imagenes[2] = 'images/separador.png';
   }
   else {
-    imagenes[0] = 'images/' + (Math.trunc(crono[0] / 10)) + '.gif';
-    imagenes[1] = 'images/' + (crono[0] % 10) + '.gif';
-    imagenes[2] = 'images/separador.gif';
+    imagenes[0] = 'images/' + (Math.trunc(crono[0] / 10)) + '.png';
+    imagenes[1] = 'images/' + (crono[0] % 10) + '.png';
+    imagenes[2] = 'images/separador.png';
   }
 
   if (crono[2] < 10) {
-    imagenes[3] = 'images/0.gif';
-    imagenes[4] = 'images/' + crono[2] + '.gif';
-    imagenes[5] = 'images/separador.gif';
+    imagenes[3] = 'images/0.png';
+    imagenes[4] = 'images/' + crono[2] + '.png';
+    imagenes[5] = 'images/separador.png';
   }
   else {
-    imagenes[3] = 'images/' + (Math.trunc(crono[2] / 10)) + '.gif';
-    imagenes[4] = 'images/' + (crono[2] % 10) + '.gif';
-    imagenes[5] = 'images/separador.gif';
+    imagenes[3] = 'images/' + (Math.trunc(crono[2] / 10)) + '.png';
+    imagenes[4] = 'images/' + (crono[2] % 10) + '.png';
+    imagenes[5] = 'images/separador.png';
   }
 
   if (crono[4] < 10) {
-    imagenes[6] = 'images/0.gif';
-    imagenes[7] = 'images/' + crono[4] + '.gif';
-    imagenes[8] = 'images/separador.gif';
+    imagenes[6] = 'images/0.png';
+    imagenes[7] = 'images/' + crono[4] + '.png';
+    imagenes[8] = 'images/separador.png';
   }
   else {
-    imagenes[6] = 'images/' + (Math.trunc(crono[4] / 10)) + '.gif';
-    imagenes[7] = 'images/' + (crono[4] % 10) + '.gif';
+    imagenes[6] = 'images/' + (Math.trunc(crono[4] / 10)) + '.png';
+    imagenes[7] = 'images/' + (crono[4] % 10) + '.png';
   }
 
 	viewCrono(1);
