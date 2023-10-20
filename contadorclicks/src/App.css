@@ -19,11 +19,28 @@ body {
 }
 
 .contenedor-principal {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contenedor-counter {
   height: 500px;
   min-width: 600px;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.contenedor-button {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
 }

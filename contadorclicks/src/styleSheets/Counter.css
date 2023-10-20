@@ -1,10 +1,11 @@
 .counter {
-	min-width: 300px;
+	min-width: 200px;
 	height: 300px;
 	font-size: 160px;
 	padding: 25px;
 	color: white;
 	display: flex;
+	flex: auto;
 	align-items: center;
 	justify-content: center;
 	border: 8px solid white;

@@ -18,15 +18,25 @@ function App() {
   return (
     <div className='App'>
       <div className='contenedor-principal'>
-        <Counter numClicks={numClicks}/>
-        <Button 
-          text='Click'
-          isButtonClick={true}
-          handleClick={handleClick}/>
-        <Button 
-          text='Reiniciar'
-          isButtonClick={false}
-          handleClick={resetCounter}/>
+        <div className='contenedor-counter'>
+          <Counter numClicks={numClicks} />
+          <Counter numClicks={numClicks} />
+          <Counter numClicks={0} />
+        </div>
+        <div className='contenedor-button'>
+          <Button
+            text='Click'
+            isButtonClick={true}
+            handleClick={handleClick_1} />
+          <Button
+            text='Click'
+            isButtonClick={true}
+            handleClick={handleClick_2} />
+          <Button
+            text='Reiniciar'
+            isButtonClick={false}
+            handleClick={resetCounter} />
+        </div>
       </div>
     </div>
   );
