@@ -10,45 +10,10 @@ class Asiento:
     """
 
     def __init__(self, numero, fila):
-        self.__numero = numero
-        self.__fila = fila
-        self.__reservado = False
-        self.__precio_base = 10
-
-    # Getters y setters
-    @property
-    def numero(self):
-        return self.__numero
-
-    @property
-    def fila(self):
-        return self.__fila
-
-    @property
-    def reservado(self):
-        return self.__reservado
-
-    @reservado.setter
-    def reservado(self, valor):
-        """
-        Setter para la propiedad 'reservado'. 
-        Valida que el valor asignado sea de tipo booleano.
-        """
-        if isinstance(valor, bool):
-            self.__reservado = valor
-        else:
-            raise TypeError("El valor de 'reservado' debe ser booleano")
-
-    @property
-    def precio_base(self):
-        return self.__precio_base
-
-    @precio_base.setter
-    def precio_base(self, valor):
-        if valor >= 0:
-            self.__precio_base = valor
-        else:
-            raise ValueError("El precio base debe ser positivo")
+        self.numero = numero
+        self.fila = fila
+        self.reservado = False
+        self.precio_base = 10
 
 class SalaCine:
     """
@@ -59,7 +24,7 @@ class SalaCine:
     """
 
     def __init__(self):
-        self.__asientos = []
+        self.asientos = []
 
     def agregar_asiento(self, asiento):
         """
@@ -71,10 +36,17 @@ class SalaCine:
         Raises:
             ValueError: Si el asiento ya existe en la sala.
         """
-        if asiento not in self.__asientos:
-            self.__asientos.append(asiento)
+        if asiento not in self.asientos:
+            self.asientos.append(asiento)
         else:
             raise ValueError("El asiento ya existe")
+        
+    def mostrar_asientos(self):
+        """
+        Muestra todos los asientos y su estado.
+        """
+        for asiento in self.asientos:
+            print(f"Asiento {asiento.numero}, Fila {asiento.fila}, Reservado: {asiento.reservado}")
 
     def reservar_asiento(self, numero, fila, edad, dia):
         """
@@ -97,7 +69,7 @@ class SalaCine:
         if asiento:
             if not asiento.reservado:
                 precio = self._calcular_precio(asiento, edad, dia)
-                asiento.reservado = True  # Utiliza el setter para marcar el asiento como reservado
+                asiento.reservado = True
                 print(f"Asiento reservado. Precio: ${precio:.2f}")
             else:
                 raise ValueError("El asiento ya está reservado")
@@ -122,13 +94,6 @@ class SalaCine:
         else:
             raise ValueError("No se puede cancelar la reserva.")
 
-    def mostrar_asientos(self):
-        """
-        Muestra todos los asientos y su estado.
-        """
-        for asiento in self.__asientos:
-            print(f"Asiento {asiento.numero}, Fila {asiento.fila}, Reservado: {asiento.reservado}")
-
     def _buscar_asiento(self, numero, fila):
         """
         Busca un asiento por número y fila en la lista de asientos.
@@ -140,7 +105,7 @@ class SalaCine:
         Returns:
             Asiento: El objeto Asiento si se encuentra, None en caso contrario.
         """
-        for asiento in self.__asientos:
+        for asiento in self.asientos:
             if asiento.numero == numero and asiento.fila == fila:
                 return asiento
         return None
@@ -161,27 +126,29 @@ class SalaCine:
         # Aquí puedes implementar la lógica de descuentos según edad y día
         if edad < 18:
             precio *= 0.8  # Descuento del 20% para menores de 18 años
-        if dia == "miercoles":
+        if dia.lower() == "miercoles":
             precio *= 0.9  # Descuento del 10% los miércoles
         return precio
 
-# Pruebas unitarias
-import unittest
+def main():
+    sala = SalaCine()
+    for numero in range(1, 11):
+        for fila in range(ord('A'), ord('Z') + 1):
+            sala.agregar_asiento(Asiento(numero, chr(fila)))
 
-class TestSalaCine(unittest.TestCase):
-    def setUp(self):
-        self.sala = SalaCine()
-        self.asiento = Asiento(1, 'A')
-        self.sala.agregar_asiento(self.asiento)
+    numero_asistentes = int(input("Ingrese el número de asistentes: "))
+    edades = []
+    for i in range(numero_asistentes):
+        edad = int(input(f"Ingrese la edad del asistente {i + 1}: "))
+        edades.append(edad)
+    dia = input("Ingrese el día de la semana: ")
 
-    def test_reservar_asiento(self):
-        self.sala.reservar_asiento(1, 'A', 70, 'miercoles')
-        self.assertTrue(self.asiento.reservado)
+    for i in range(numero_asistentes):
+        numero_asiento = int(input(f"Ingrese el número del asiento para el asistente {i + 1}: "))
+        fila_asiento = input(f"Ingrese la fila del asiento para el asistente {i + 1}: ").upper()
+        sala.reservar_asiento(numero_asiento, fila_asiento, edades[i], dia)
 
-    def test_cancelar_reserva(self):
-        self.sala.reservar_asiento(1, 'A', 70, 'miercoles')
-        self.sala.cancelar_reserva(1, 'A')
-        self.assertFalse(self.asiento.reservado)
+    sala.mostrar_asientos()
 
 if __name__ == '__main__':
-    unittest.main()
+    main()
